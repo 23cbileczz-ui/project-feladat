@@ -1,0 +1,118 @@
+🎮 Cím és téma
+
+Cím: Holdfény Tábor: Vér az Erdőben
+Téma: túlélő horror, döntésalapú történet
+Inspiráció: The Quarry
+
+🌲 Alapsztori (rövid összefoglaló)
+
+Egy nyári tábor utolsó estéjén 5 fiatal gondozó bent ragad az erdőben, miután furcsa események kezdődnek:
+
+eltűnnek emberek
+valami mozog az erdőben
+egy régi, lezárt bánya titka kezd felszínre kerülni
+
+A játékos egy karaktert irányít, és döntéseivel befolyásolja:
+
+ki éli túl
+mi az igazság
+és mi vadászik rájuk
+👥 Fő karakterek
+Ádám – racionális, vezető típus
+Lili – kíváncsi, vakmerő
+Bence – humoros, de gyáva
+Nóra – empatikus, érzékeny
+Dani – titokzatos, valamit eltitkol
+🎯 Fő mechanika (CLI szempontból)
+választások: 1 / 2 / 3
+állapotok:
+élet (hp)
+bizalom (karakterek között)
+fertőzés (!!! fontos csavar)
+
+Mentés:
+
+fájlba írás (save.txt)
+pl:
+nev=Adam
+hp=80
+fertozott=true
+fejezet=3
+🌿 Fő történeti ágak
+1️⃣ Táborban maradás
+biztonságosnak tűnik
+de valami bejut...
+2️⃣ Erdőbe menekülés
+találkozás vadásszal
+csapdák
+rejtett kunyhó
+3️⃣ Bánya felfedezése
+legveszélyesebb út
+itt derül ki az igazság
+🔥 Nagy csavarok
+❗ Dani már fertőzött
+❗ a “szörny” nem egy, hanem több
+❗ a vadász nem ellenség (de rossz döntéssel az lesz)
+❗ fertőzés lassan alakul → játékos döntéseken múlik
+🧩 Játékmenet példa (CLI jelenet)
+[ERDŐ - ÉJSZAKA]
+
+Sötét van. Valami mozog a bokrok között.
+
+1 - Megnézed mi az
+2 - Elfutsz
+3 - Szólsz a többieknek
+Ha 1:
+
+Közelebb lépsz... egy véres hátizsák. Hirtelen morgás mögötted.
+
+→ harc vagy menekülés
+
+Ha 2:
+
+Futni kezdesz, de elesel. Valami közeledik.
+
+→ gyors döntés
+
+Ha 3:
+
+A többiek pánikolnak. Dani furán viselkedik...
+
+→ bizalom csökken
+
+⚔️ Harcrendszer (egyszerű CLI)
+Támadás vagy menekülés?
+
+1 - Támadás
+2 - Menekülés
+random sebzés
+esély alapú túlélés
+fertőzés esély harc után
+🧠 Döntési következmények
+valaki meghal → történet változik
+bizalom → segítenek vagy cserbenhagynak
+fertőzés → később átalakulás
+🏁 Végkimenetelek
+🟢 Jó befejezés
+túlélők megszöknek
+titok napvilágra kerül
+🟡 Keserédes
+páran meghalnak
+fertőzés tovább él
+🔴 Rossz
+mindenki meghal
+játékos karakter is átalakul
+⚫ Titkos ending
+játékos maga válik “vadásszá”
+💡 Extra csavar ötletek
+holdfázis hatással van eseményekre
+bizonyos döntések csak egyszer választhatók
+időlimit (gyors döntések)
+🧱 Programozási struktúra (rövid váz)
+main()
+  loadGame()
+  while (gameRunning)
+    showScene()
+    choice = input()
+    processChoice(choice)
+    saveGame()
